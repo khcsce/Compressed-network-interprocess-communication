@@ -1,0 +1,47 @@
+#NAME: Khoa Quach
+#EMAIL: khoaquachschool@gmail.com
+#ID: 105123806
+Content:
+lab1b-105123806.tar.gz which contains:
+lab1b-server.c
+lab1b-client.c
+README (this file)
+Makefile
+
+Makefile: 
+default ... builds lab1b-client and lab1b-server exec, 
+clean ... deletes files created by the Makefile
+dist ... builds a distribution tarball of files: lab1a.c, Makefile, READ, lab1a-105123806.tar.gz
+client .. builds lab1b-client exec
+server ... builds lab1b-server exec
+
+Description of project:
+Compressed network communication
+socket programming
+Client and server where the server has interprocess communication to the shell via pipes
+
+Testing methodology
+Opening two terminals and running ./lab1b-server --port=# --compress (and without --compress)
+./lab1b-client --port=# --log=log.txt --compress (and without --compress)
+Typing commands and invalid commands, CTRLD, and CTRLC, etc to see if behavior
+matched project 1A interms of what is echoed out on the client exec running
+Seeing if exit signals are consistent with project 1A
+Opening log.txt too see if bytes being sent make sense
+
+Sources:
+Some sources were skimmed through since information overlapped from other links
+https://www.binarytides.com/socket-programming-c-linux-tutorial/
+https://www.binarytides.com/server-client-example-c-sockets-linux/
+https://www.geeksforgeeks.org/socket-programming-cc/ # referenced more
+https://www.codeproject.com/articles/586000/networking-and-socket-programming-tutorial-in-c
+http://www.cs.rpi.edu/courses/fall96/netprog/lectures/html/sockets.html
+http://www.cs.tau.ac.il/~eddiea/samples/IOMultiplexing/TCP-client.c.html
+https://www.cs.cmu.edu/afs/cs/academic/class/15213-f99/www/class26/tcpclient.c # referenced more
+https://www.cs.cmu.edu/afs/cs/academic/class/15213-f99/www/class26/tcpserver.c # referenced more
+https://www.linuxquestions.org/questions/linux-networking-3/gethostbyname-localhost-274323/
+https://man7.org/linux/man-pages/man7/socket.7.html
+https://zlib.net/zlib_how.html
+https://zlib.net/zpipe.c # referenced more
+https://www.lemoda.net/c/zlib-open-write/
+https://gist.github.com/arq5x/5315739 # referenced more
+http://svn.python.org/projects/external/zlib/example.c # referenced more
