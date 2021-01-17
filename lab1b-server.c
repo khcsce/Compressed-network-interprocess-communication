@@ -128,8 +128,11 @@ void shell_exit(){
 	    fprintf(stderr,"SHELL EXIT SIGNAL=%d STATUS=%d\n", WTERMSIG(status), WEXITSTATUS(status));
 	    //exit(0);
 	}
+	/*
 	check_close(p_to_c[1]);
 	check_close(c_to_p[0]);
+	check_close(sockfd);
+	check_close(sockfd2);*/
 	check_close(sockfd);
 	check_close(sockfd2);
 }
@@ -303,10 +306,7 @@ void parent_case() {
 			}
 		} // if ret > 0
 	} // while(1)
-	check_close(sockfd);
-	check_close(sockfd2);
-	check_close(c_to_p[0]);
-	check_close(p_to_c[1]);
+	close_exit();
 
 } // parent_case
 
