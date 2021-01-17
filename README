@@ -11,7 +11,9 @@ Makefile
 Makefile: 
 default ... builds lab1b-client and lab1b-server exec, 
 clean ... deletes files created by the Makefile
-dist ... builds a distribution tarball of files: lab1a.c, Makefile, READ, lab1a-105123806.tar.gz
+dist ... builds a distribution tarball of files: lab1b-client.c,lab1b-server.c
+Makefile, README, lab1b-105123806.tar.gz
+
 client .. builds lab1b-client exec
 server ... builds lab1b-server exec
 
