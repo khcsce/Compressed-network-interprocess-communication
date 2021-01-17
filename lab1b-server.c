@@ -143,8 +143,8 @@ void make_pipe(int p[2]){
 void signal_handler(int sig){
 	check_close(p_to_c[1]);
 	check_close(c_to_p[0]);
-	if(sig == SIGPIPE || sig == SIGINT){
-		kill(pid, SIGINT);
+	if(sig == SIGPIPE){
+	  //kill(pid, SIGINT);
 		shell_exit();
 		exit(0); //dont need really
 	}
@@ -397,7 +397,7 @@ int main(int argc, char **argv){
 	atexit(shell_exit); // reassurance if signal handler doesn't work as intender 
 	atexit(close_exit);
 	signal(SIGPIPE, signal_handler);
-	signal(SIGINT, signal_handler);
+	//	signal(SIGINT, signal_handler);
 	pid = fork(); // create new process => child
 	if (pid == -1)
 		print_error("fork() error");
