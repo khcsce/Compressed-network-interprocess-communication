@@ -133,8 +133,8 @@ void shell_exit(){
 	check_close(c_to_p[0]);
 	check_close(sockfd);
 	check_close(sockfd2);*/
-	//check_close(sockfd);
-	//check_close(sockfd2);
+	check_close(sockfd);
+	check_close(sockfd2);
 }
 
 void make_pipe(int p[2]){
@@ -395,7 +395,7 @@ int main(int argc, char **argv){
 	make_pipe(c_to_p);
 	make_pipe(p_to_c);
 	atexit(shell_exit); // reassurance if signal handler doesn't work as intender 
-	//atexit(close_exit);
+	atexit(close_exit);
 	signal(SIGPIPE, signal_handler);
 	//	signal(SIGINT, signal_handler);
 	pid = fork(); // create new process => child
