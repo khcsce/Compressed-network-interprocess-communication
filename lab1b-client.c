@@ -231,7 +231,8 @@ void client_case() {
 						c = buf[i];
 						if (c == CR || c == LF || c == crlf[0] || c == crlf[1]) {
 							write_with_check(1, &crlf, sizeof(char) * 2);
-							write_with_check(sockfd,&c,1);
+							//write_with_check(sockfd,&c,1);
+							write_with_check(sockfd,&crlf[1],1);
 						//} else if (c == CTRLD || c == 0x04) {
 						//	write_with_check(1, &arrow_D, sizeof(char) * 2);
 						//}
@@ -299,10 +300,10 @@ void client_case() {
 				}
 				if(compress_flag){
 					int decompressed_bytes;
-					unsigned char decompressed_buf[1024];
+					unsigned char decompressed_buf[256];
 					s_to_c.avail_in = s; // BUF 
 					s_to_c.next_in = (unsigned char *)buf; // BUF
-					s_to_c.avail_out = 1024; // SOCKETBUF SIZE
+					s_to_c.avail_out = 256; // SOCKETBUF SIZE
 					s_to_c.next_out = decompressed_buf; // SOCKETBUF
 					// inflate
 					do {
@@ -310,7 +311,7 @@ void client_case() {
 							print_error("Error: inflate error");
 						}
 					} while (s_to_c.avail_in > 0);
-					decompressed_bytes = 1024 - s_to_c.avail_out;
+					decompressed_bytes = 256 - s_to_c.avail_out;
 					for (int i =0; i < decompressed_bytes; i++){
 						c = decompressed_buf[i];
 						if (c == CR || c == LF || c == crlf[0] || c == crlf[1]) {

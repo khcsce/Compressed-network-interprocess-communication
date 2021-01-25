@@ -1,0 +1,42 @@
+SENT 1 bytes: a
+SENT 1 bytes: 
+RECEIVED 40 bytes: /bin/bash: line 1: a: command not found
+
+SENT 1 bytes: l
+SENT 1 bytes: s
+SENT 1 bytes: 
+RECEIVED 244 bytes: functions.sh
+lab1b-105123806.tar.gz
+lab1b-client
+lab1b-client.c
+lab1b-server
+lab1b-server.c
+logcomp.txt
+lognocomp2.txt
+lognocomp3.txt
+lognocomp.txt
+log.txt
+Makefile
+new_client.c
+P1B_check.sh
+README
+server_fderror.c
+temp2.txt
+temp3.txt
+temp.txt
+
+SENT 1 bytes: w
+SENT 1 bytes: h
+SENT 1 bytes: a
+SENT 1 bytes: t
+SENT 1 bytes: i
+SENT 1 bytes: s
+SENT 1 bytes:  
+SENT 1 bytes: c
+SENT 1 bytes: d
+SENT 1 bytes: 
+RECEIVED 159 bytes: cd (n)               - Change working directory
+cd (1p)              - change the working directory
+cd (1)               - bash built-in commands, see bash(1)
+
+SENT 1 bytes: 
