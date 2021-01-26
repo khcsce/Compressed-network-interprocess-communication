@@ -279,7 +279,7 @@ void parent_case() {
 				exit(1);
 			/*-- SHELL INPUT--*/
 			if (shell_e & POLLIN){
-				s = read(c_to_p[0],&buf,256);
+				s = read_with_check(c_to_p[0],&buf,256);
 				if (!compress_flag){
 				  /*
 				  for(int i = 0; i < s ; i++)
