@@ -249,17 +249,17 @@ void client_case() {
 				}
 				if(compress_flag){
 					int compressed_bytes;
-					unsigned char compressed_buf[256];
+					unsigned char compressed_buf[1024];
 					c_to_s.avail_in = s;
 					c_to_s.next_in = (unsigned char *)buf;
-					c_to_s.avail_out = 256;
+					c_to_s.avail_out = 1024;
 					c_to_s.next_out = compressed_buf;
 					do {
 						if (deflate(&c_to_s, Z_SYNC_FLUSH) != Z_OK) {
 							print_error("Error: deflate error");
 						}
 					} while (c_to_s.avail_in > 0);
-					compressed_bytes = 256 - c_to_s.avail_out;
+					compressed_bytes = 1024 - c_to_s.avail_out;
 					write_with_check(sockfd,compressed_buf,compressed_bytes);
 					for (int i =0; i < s; i++){
 						c = buf[i];
@@ -300,10 +300,10 @@ void client_case() {
 				}
 				if(compress_flag){
 					int decompressed_bytes;
-					unsigned char decompressed_buf[256];
+					unsigned char decompressed_buf[1024];
 					s_to_c.avail_in = s; // BUF 
 					s_to_c.next_in = (unsigned char *)buf; // BUF
-					s_to_c.avail_out = 256; // SOCKETBUF SIZE
+					s_to_c.avail_out = 1024; // SOCKETBUF SIZE
 					s_to_c.next_out = decompressed_buf; // SOCKETBUF
 					// inflate
 					do {
@@ -311,7 +311,7 @@ void client_case() {
 							print_error("Error: inflate error");
 						}
 					} while (s_to_c.avail_in > 0);
-					decompressed_bytes = 256 - s_to_c.avail_out;
+					decompressed_bytes = 1024 - s_to_c.avail_out;
 					for (int i =0; i < decompressed_bytes; i++){
 						c = decompressed_buf[i];
 						if (c == CR || c == LF || c == crlf[0] || c == crlf[1]) {
